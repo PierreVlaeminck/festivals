@@ -12,6 +12,7 @@ public class Festivals {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nom;
+    private String url;
     private String ville;
     private int cp;
 

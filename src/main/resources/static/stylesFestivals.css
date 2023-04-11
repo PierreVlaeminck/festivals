@@ -1,0 +1,46 @@
+*{
+
+}
+
+.main-index{
+    background-color: lightgrey;
+}
+
+h1{
+    text-align: center;
+}
+
+
+/* Style pour le tableau */
+.tableau {
+    width: 80%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    margin: 0px auto 100px auto;
+
+}
+
+/* Style pour l'en-tête */
+.haut-tableau {
+    background-color: white;
+}
+
+.en-tete-tableau {
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+
+/* Style pour les cellules */
+.cellule {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Style pour les lignes impaires */
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}

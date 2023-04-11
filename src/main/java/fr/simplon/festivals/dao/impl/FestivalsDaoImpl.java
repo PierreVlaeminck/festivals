@@ -12,7 +12,7 @@ public class FestivalsDaoImpl implements FestivalsDao {
     @Autowired
     private FestivalsRepository festivalsRepository;
 
-    // Méthde pour enregistrer un nouveau festival dans la base
+    // Méthode pour enregistrer un nouveau festival dans la base
     @Override
     public void saveFestivals(Festival festival){
         festivalsRepository.save(festival);

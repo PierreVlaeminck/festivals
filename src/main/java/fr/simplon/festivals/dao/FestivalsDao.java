@@ -8,4 +8,5 @@ public interface FestivalsDao {
     void saveFestivals(Festival festival);
 
     List<Festival> getAllFestivals();
+
 }

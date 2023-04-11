@@ -46,7 +46,7 @@ public class FestivalsController {
      * @param festival Festival object representing the new Festival to be added.
      * @return String representing the name of the view to be rendered after adding the new Festival.
      */
-    @PostMapping("/addFestival")
+    @PostMapping("/inscription")
     public String addFestival(@ModelAttribute("festival") Festival festival) {
         festivalsDao.saveFestivals(festival);
         return ("index");

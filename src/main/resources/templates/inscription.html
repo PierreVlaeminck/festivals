@@ -12,7 +12,7 @@
 
     <main>
         <h1>Créer un nouveau festival </h1>
-        <form class="inscription" th:action="@{/inscription}" th:object="${festivals}" method="post">
+        <form class="inscription" th:action="@{/inscription}" th:object="${festival}" method="post">
 
             <label>Nom :</label>
             <input type="text" th:field="*{nom}" />

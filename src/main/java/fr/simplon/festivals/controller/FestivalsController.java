@@ -30,13 +30,13 @@ public class FestivalsController {
     @GetMapping("/")
     public String displayAllFestivals(Model model){
         List<Festival> festivals = festivalsDao.getAllFestivals();
-        model.addAttribute("festivals", festivals);
+        model.addAttribute("festival", festivals);
         return "index";
     }
 
     @GetMapping("/inscription")
     public String displayForms(Model model){
-        model.addAttribute("festivals", new Festival());
+        model.addAttribute("festival", new Festival());
         return ("inscription");
     }
 

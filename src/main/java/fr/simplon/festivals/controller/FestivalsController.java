@@ -3,6 +3,7 @@ package fr.simplon.festivals.controller;
 import fr.simplon.festivals.dao.FestivalsDao;
 import fr.simplon.festivals.entity.Festival;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,12 @@ public class FestivalsController {
         List<Festival> festivals = festivalsDao.getAllFestivals();
         model.addAttribute("festivals", festivals);
         return "index";
+    }
+
+    @GetMapping("/inscription")
+    public String displayForms(Model model){
+        model.addAttribute("festivals", new Festival());
+        return ("inscription");
     }
 
     /**

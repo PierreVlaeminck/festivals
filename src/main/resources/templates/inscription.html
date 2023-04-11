@@ -3,9 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesFestivals.css">
-    <title>Title</title>
+    <title>Ajouter un festival</title>
 </head>
 <body>
+    <header>
+        <h1>Page "Ajouter un festival" </h1>
+    </header>
+
+    <main>
+        <h1>Créer un nouveau festival </h1>
+        <form class="inscription" th:action="@{/inscription}" th:object="${festivals}" method="post">
+
+            <label>Nom :</label>
+            <input type="text" th:field="*{nom}" />
+            <br>
+
+            <label>Ville :</label>
+            <input type="text" th:field="*{ville}" />
+            <br>
+
+            <label>Code postal :</label>
+            <input type="number" th:field="*{cp}" />
+            <br>
+
+            <label>Lieu :</label>
+            <input type="text" th:field="*{lieu}" />
+            <br>
+
+            <label>Date de début :</label>
+            <input type="date" th:field="*{dateDebut}" />
+            <br>
+
+            <label>Date de fin: :</label>
+            <input type="date" th:field="*{dateFin}" />
+            <br>
+
+            <label>Latitude :</label>
+            <input type="number" th:field="*{latitude}" />
+            <br>
+
+            <label>Longitude :</label>
+            <input type="number" th:field="*{longitude}" />
+            <br>
+
+            <label>Url :</label>
+            <input type="text" th:field="*{url}" />
+            <br>
+
+            <input type="submit" value="Enregistrer"/>
+        </form>
+    </main>
 
 </body>
 </html>

@@ -13,7 +13,7 @@
 
     <main class="main-index">
         <h1>Les festivals de votre région</h1>
-        <input type="submit" value="Ajouter un festival" />
+        <input class="bouton-vert" type="submit" value="Ajouter un festival" />
         <table class="tableau">
             <thead class="haut-tableau">
             <tr>
@@ -22,6 +22,7 @@
                 <th class="en-tete-tableau">Lieu</th>
                 <th class="en-tete-tableau">Début</th>
                 <th class="en-tete-tableau">Fin</th>
+                <th class="en-tete-tableau"></th>
             </tr>
             </thead>
             <tbody>
@@ -31,7 +32,7 @@
                 <td class="cellule" th:text="${festival.lieu}"></td>
                 <td class="cellule" th:date="${festival.dateDebut}"></td>
                 <td class="cellule" th:date="${festival.dateFin}"></td>
-                <input type="submit" value="Editer" />
+                <td> <input type="submit" value="Editer" /></td>
             </tr>
             </tbody>
         </table>

@@ -2,9 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/stylesFestivals.css">
+    <title>Page d'accueil</title>
 </head>
 <body>
+
+    <header>
+    </header>
+
+    <main>
+        <h1>Page d'accueil</h1>
+        <input type="submit" value="Ajouter un festival" />
+        <table class="liste-festivals">
+            <thead class="en-tete-tableau">
+            <tr>
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>Lieu</th>
+                <th>Début</th>
+                <th>Fin</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="festival : ${festivals}">
+                <td class="cellule" th:text="${festival.nom}"></td>
+                <td class="cellule" th:text="${festival.ville}"></td>
+                <td class="cellule" th:text="${festival.lieu}"></td>
+                <td class="cellule" th:date="${festival.debut}"></td>
+                <td class="cellule" th:date="${festival.fin}"></td>
+                <input type="submit" value="Editer" />
+            </tr>
+            </tbody>
+        </table>
+    </main>
 
 </body>
 </html>

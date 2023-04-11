@@ -17,7 +17,7 @@ public class FestivalsDaoImpl implements FestivalsDao {
     public void saveFestivals(Festival festival){
         festivalsRepository.save(festival);
     }
-    // Récupère tous les festivals présent dans la base de données.
+    // Récupère tous les festivals present dans la base de données.
     @Override
     public List<Festival> getAllFestivals(){
         return festivalsRepository.findAll();

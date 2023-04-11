@@ -19,10 +19,7 @@ public class Festival {
 
     @Column (columnDefinition = "TEXT")
     private String lieu;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dateDebut;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dateFin;
     private Double latitude;
     private Double longitude;

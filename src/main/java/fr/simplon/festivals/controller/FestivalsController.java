@@ -49,7 +49,7 @@ public class FestivalsController {
     @PostMapping("/inscription")
     public String addFestival(@ModelAttribute("festival") Festival festival) {
         festivalsDao.saveFestivals(festival);
-        return ("index");
+        return ("redirect:/");
     }
 
 }

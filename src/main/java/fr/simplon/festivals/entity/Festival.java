@@ -1,5 +1,6 @@
 package fr.simplon.festivals.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -17,9 +18,11 @@ public class Festival {
     private int cp;
 
     @Column (columnDefinition = "TEXT")
-    private String texte;
+    private String lieu;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dateDebut;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dateFin;
     private Double latitude;
     private Double longitude;
@@ -59,12 +62,12 @@ public class Festival {
         this.cp = cp;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getLieu() {
+        return lieu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setLieu(String texte) {
+        this.lieu = texte;
     }
 
     public Date getDateDebut() {

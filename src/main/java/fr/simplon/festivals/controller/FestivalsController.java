@@ -19,8 +19,8 @@ public class FestivalsController {
     @GetMapping("/")
     public String displayAllFestivals(Model model){
         List<Festival> festivals = festivalsDao.getAllFestivals();
-        model.addAttribute("festivals", festivals);
-        return "festivals";
+        model.addAttribute("/index", festivals);
+        return "index";
     }
 
 }

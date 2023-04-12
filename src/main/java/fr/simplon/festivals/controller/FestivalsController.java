@@ -3,13 +3,9 @@ package fr.simplon.festivals.controller;
 import fr.simplon.festivals.dao.FestivalsDao;
 import fr.simplon.festivals.entity.Festival;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -54,10 +50,6 @@ public class FestivalsController {
         return ("redirect:/");
     }
 
-
-
-
-
     @GetMapping("/modification")
     public String displayEditForm(@RequestParam("id") Long id, Model model){
         Optional<Festival> optionalfestival = festivalsDao.findById(id);
@@ -70,5 +62,10 @@ public class FestivalsController {
         return ("redirect:/");
     }
 
-
+    @GetMapping("/api/festivals")
+    @ResponseBody
+    public List<Festival> getAllFestivalsAsJson() {
+        List<Festival> festivals = festivalsDao.getAllFestivals();
+        return festivals;
+    }
 }

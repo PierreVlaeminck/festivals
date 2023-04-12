@@ -1,4 +1,10 @@
 /* CSS commun aux 3 pages */
+#mapid {
+    height: 400px;
+    width: 100%;
+}
+
+
 html {
     background-image: url("fond6.PNG");
     background-repeat: no-repeat;

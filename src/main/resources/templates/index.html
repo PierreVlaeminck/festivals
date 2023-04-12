@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="/stylesFestivals.css">
     <title>Page d'accueil</title>
 </head>
 <body>
+<div id="mapid"></div>
+
 <div class="background-image">
 
     <header>
@@ -15,7 +18,8 @@
 
     <main class="main-index">
         <h2>Les festivals de votre région</h2>
-        <a id="acces-inscription" href="/inscription"><input class="bouton-vert"  type="submit" value="Ajouter un festival"/></a>
+        <a id="acces-inscription" href="/inscription"><input class="bouton-vert" type="submit"
+                                                             value="Ajouter un festival"/></a>
         <table class="tableau">
             <thead class="haut-tableau">
             <tr>
@@ -36,8 +40,8 @@
                 <td class="cellule" th:text="${festival.dateFin}"></td>
                 <td>
                     <form th:action="@{/modification}" method="get">
-                        <input type="hidden" name="id" th:value="${festival.id}" />
-                        <input type="submit" value="Editer" />
+                        <input type="hidden" name="id" th:value="${festival.id}"/>
+                        <input type="submit" value="Editer"/>
                     </form>
                 </td>
             </tr>
@@ -45,5 +49,8 @@
         </table>
     </main>
 </div>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/index.js"></script>
 </body>
 </html>

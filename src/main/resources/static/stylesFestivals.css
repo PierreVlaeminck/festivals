@@ -1,4 +1,6 @@
-/* CSS commun aux 3 pages */
+
+/* -----------------------------------CSS commun aux 3 pages -------------------------------*/
+
 #mapid {
     height: 400px;
     width: 100%;
@@ -72,6 +74,12 @@ h2 {
     margin: auto;
 }
 
+/* Style pour le conteneur du tableau */
+.table-container {
+    height: 300px;
+    overflow-y: scroll;
+}
+
 /* Style pour le tableau des festivals */
 .tableau {
     width: 95%;
@@ -103,7 +111,18 @@ tbody tr:nth-child(odd) {
     background-color: white;
 }
 
-/* ------------------------------Page Inscription------------------------------------- */
+/* Style pour les bouton "Editer" */
+.bouton-editer {
+    background-color: black;
+    color: white;
+    width: 40px;
+    margin: auto;
+    font-size: 10px;
+}
+
+
+
+/* ------------------------------Page Inscription & Modification------------------------------------- */
 
 form{
     text-align: center;
@@ -127,7 +146,6 @@ form input{
 }
 
 
-/* ------------------------------Page Modification------------------------------------- */
 
 
 

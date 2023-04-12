@@ -12,12 +12,11 @@ public class Festival {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nom;
     private String url;
     private String ville;
     private int cp;
-
     @Column (columnDefinition = "TEXT")
     private String lieu;
     private LocalDate dateDebut;
@@ -25,9 +24,15 @@ public class Festival {
     private Double latitude;
     private Double longitude;
 
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -64,8 +69,8 @@ public class Festival {
         return lieu;
     }
 
-    public void setLieu(String texte) {
-        this.lieu = texte;
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
     }
 
     public LocalDate getDateDebut() {

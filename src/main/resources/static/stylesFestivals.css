@@ -62,7 +62,13 @@ h2 {
 
 /* ------------------------------Page Index------------------------------------- */
 
-#acces-inscription {
+/* Style pour le positionnement de la carte */
+#mapid{
+    margin: 10px auto 20px auto;
+}
+
+/* Style pour le positionnement du bouton */
+#bouton-inscription {
     margin: auto;
 }
 

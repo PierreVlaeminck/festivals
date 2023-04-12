@@ -18,6 +18,9 @@
         <h2>Editer un festival </h2>
         <form class="modification" th:action="@{/modification}" th:object="${festival}" method="post">
 
+            <!-- Ajout du champ caché pour stocker l'ID du festival -->
+            <input type="hidden" th:field="*{id}" />
+
             <label>Nom :</label>
             <input type="text" th:field="*{nom}" />
             <br>
@@ -35,11 +38,11 @@
             <br>
 
             <label>Date de début :</label>
-            <input type="date" th:field="*{dateDebut}" />
+            <input type="date" th:field="*{dateDebut}" name="dateDebut" />
             <br>
 
             <label>Date de fin: :</label>
-            <input type="date" th:field="*{dateFin}" />
+            <input type="date" th:field="*{dateFin}"  name="dateDebut" />
             <br>
 
             <input class="bouton-vert" type="submit" value="Enregistrer"/>

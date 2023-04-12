@@ -1,54 +1,127 @@
-*{
-
+/* CSS commun aux 3 pages */
+html {
+    background-image: url("fond6.PNG");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.main-index{
-    background-color: lightgrey;
-    margin: 200px;
+html::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: radial-gradient( white, #d0b1e7, #1c031c 60%);
+    width: 100%;
+    height: 100vh;
+    opacity: 90%;
+    mix-blend-mode: screen; /* mode de fusion pour ajouter de la lumière */
 }
 
-h1{
-    text-align: center;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 
-.bouton-vert{
-    width: auto;
-    text-align: center;
+main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    background-color: #E6E6E6;
+    margin: 100px 300px;
+    padding: 10px 5px 20px 5px;
+    font-family: arial;
+}
+
+.bouton-vert {
+    margin: auto;
+    padding: 5px;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
     background-color: yellowgreen;
     color: white;
     font-weight: bold;
 }
 
-/* Style pour le tableau */
-.tableau {
-    width: 80%;
-    border-collapse: collapse;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    margin: 100px auto 100px 100px;
-
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: "Calibri Light";
+    color: white;
 }
 
-/* Style pour l'en-tête */
+h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+/* ------------------------------Page Index------------------------------------- */
+
+#acces-inscription {
+    margin: auto;
+}
+
+/* Style pour le tableau des festivals */
+.tableau {
+    width: 95%;
+    margin: 10px auto 100px auto;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
 .haut-tableau {
     background-color: white;
+
 }
 
 .en-tete-tableau {
     padding: 10px;
     text-align: left;
     font-weight: bold;
-    border: 1px solid #ddd;
 }
 
-/* Style pour les cellules */
+/* Style pour les cellules du tableau */
 .cellule {
     padding: 10px;
-    border: 1px solid #ddd;
+    font-size: 10px;
 }
 
-/* Style pour les lignes impaires */
+/* Style pour les lignes impaires du tableau */
 tbody tr:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: white;
 }
+
+/* ------------------------------Page Inscription------------------------------------- */
+
+form{
+    text-align: center;
+}
+
+form label {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+form input{
+    display: inline-block;
+    width: 200px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------Page Modification------------------------------------- */
+
+
+
+
+
+
+
+
+

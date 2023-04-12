@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/stylesFestivals.css">
     <title>Page d'accueil</title>
 </head>
 <body>
+<div class="background-image">
 
     <header>
         <h1>Page d'accueil</h1>
     </header>
 
     <main class="main-index">
-        <h1>Les festivals de votre région</h1>
-        <input class="bouton-vert" type="submit" value="Ajouter un festival" />
+        <h2>Les festivals de votre région</h2>
+        <a id="acces-inscription" href="/inscription"><input class="bouton-vert"  type="submit" value="Ajouter un festival"/></a>
         <table class="tableau">
             <thead class="haut-tableau">
             <tr>
@@ -32,11 +34,16 @@
                 <td class="cellule" th:text="${festival.lieu}"></td>
                 <td class="cellule" th:text="${festival.dateDebut}"></td>
                 <td class="cellule" th:text="${festival.dateFin}"></td>
-                <td> <input type="submit" value="Editer" /></td>
+                <td>
+                    <form th:action="@{/modification}" method="get">
+                        <input type="hidden" name="id" th:value="${festival.id}" />
+                        <input type="submit" value="Editer" />
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
     </main>
-
+</div>
 </body>
 </html>

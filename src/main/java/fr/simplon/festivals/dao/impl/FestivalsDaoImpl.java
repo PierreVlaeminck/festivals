@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class FestivalsDaoImpl implements FestivalsDao {
@@ -22,4 +23,10 @@ public class FestivalsDaoImpl implements FestivalsDao {
     public List<Festival> getAllFestivals(){
         return festivalsRepository.findAll();
     }
+
+    @Override
+    public Optional<Festival> findById(Long id) {
+        return festivalsRepository.findById(id);
+    }
+
 }

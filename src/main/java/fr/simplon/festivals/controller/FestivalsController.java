@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Controller class for handling requests related to Festivals.
@@ -51,5 +53,22 @@ public class FestivalsController {
         festivalsDao.saveFestivals(festival);
         return ("redirect:/");
     }
+
+
+
+
+
+    @GetMapping("/modification")
+    public String displayEditForm(@RequestParam("id") Long id, Model model){
+        Optional<Festival> optionalfestival = festivalsDao.findById(id);
+        model.addAttribute("festival", optionalfestival);
+        return ("modification");
+    }
+    @PostMapping("/modification")
+    public String editFestival(@ModelAttribute("festival") Festival festival) {
+        festivalsDao.saveFestivals(festival);
+        return ("redirect:/");
+    }
+
 
 }

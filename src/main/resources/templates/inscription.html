@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/stylesFestivals.css">
     <title>Ajouter un festival</title>
 </head>
@@ -11,23 +12,23 @@
     </header>
 
     <main>
-        <h1>Créer un nouveau festival </h1>
+        <h2>Créer un nouveau festival </h2>
         <form class="inscription" th:action="@{/inscription}" th:object="${festival}" method="post">
 
             <label>Nom :</label>
-            <input type="text" th:field="*{nom}" />
+            <input type="text" th:field="*{nom}" required/>
             <br>
 
             <label>Ville :</label>
-            <input type="text" th:field="*{ville}" />
+            <input type="text" th:field="*{ville}" required/>
             <br>
 
             <label>Code postal :</label>
-            <input type="number" th:field="*{cp}" />
+            <input type="number" th:field="*{cp}" required/>
             <br>
 
             <label>Lieu :</label>
-            <input type="text" th:field="*{lieu}" />
+            <input type="text" th:field="*{lieu}" required/>
             <br>
 
             <label>Date de début :</label>
@@ -39,18 +40,18 @@
             <br>
 
             <label>Latitude :</label>
-            <input type="number" th:field="*{latitude}" step="any" />
+            <input type="number" th:field="*{latitude}" step="any" required/>
             <br>
 
             <label>Longitude :</label>
-            <input type="number" th:field="*{longitude}" step="any" />
+            <input type="number" th:field="*{longitude}" step="any" required/>
             <br>
 
             <label>Url :</label>
             <input type="text" th:field="*{url}" />
             <br>
 
-            <input type="submit" value="Enregistrer"/>
+            <input class="bouton-vert" type="submit" value="Enregistrer"/>
         </form>
     </main>
 

@@ -18,3 +18,32 @@ fetch("http://localhost:8080/api/festivals")
         });
     })
     .catch(error => console.error(error));
+
+// Obtenir la colonne "Date de début"
+const dateDebutHeader = document.querySelector(".en-tete-tableau:nth-child(4)");
+
+// Ajouter un écouteur d'événements de clic à l'en-tête de la colonne "Date de début"
+dateDebutHeader.addEventListener("click", function() {
+    const table = document.querySelector(".tableau");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // Tri des données en fonction de la date de début
+    rows.sort(function(a, b) {
+        const aDate = new Date(a.querySelector(".cellule:nth-child(4)").innerText);
+        const bDate = new Date(b.querySelector(".cellule:nth-child(4)").innerText);
+
+        return aDate - bDate;
+    });
+
+    // Inverser l'ordre si l'utilisateur a déjà trié dans l'ordre croissant
+    if (dateDebutHeader.dataset.sort === "asc") {
+        rows.reverse();
+        dateDebutHeader.dataset.sort = "desc";
+    } else {
+        dateDebutHeader.dataset.sort = "asc";
+    }
+
+    // Mettre à jour le tableau avec les données triées
+    rows.forEach(row => tbody.appendChild(row));
+});

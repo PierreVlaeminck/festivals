@@ -100,6 +100,10 @@ h2 {
     font-weight: bold;
 }
 
+th.sortable:hover {
+    cursor: pointer;
+}
+
 /* Style pour les cellules du tableau */
 .cellule {
     padding: 10px;

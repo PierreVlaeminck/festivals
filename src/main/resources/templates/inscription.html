@@ -3,57 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="/stylesFestivals.css">
     <title>Ajouter un festival</title>
 </head>
 <body>
-    <header>
-        <h1>Page "Ajouter un festival" </h1>
-    </header>
+<header>
+    <h1>Page "Ajouter un festival" </h1>
+</header>
 
-    <main>
+<main>
+    <section>
         <h2>Créer un nouveau festival </h2>
-        <form class="inscription" th:action="@{/inscription}" th:object="${festival}" method="post">
+        <div id="mapid"></div>
+    </section>
+    <form class="inscription" th:action="@{/inscription}" th:object="${festival}" method="post">
 
-            <label>Nom :</label>
-            <input type="text" th:field="*{nom}" required/>
-            <br>
+        <label>Nom :</label>
+        <input type="text" th:field="*{nom}" required/>
+        <br>
 
-            <label>Ville :</label>
-            <input type="text" th:field="*{ville}" required/>
-            <br>
+        <label>Ville :</label>
+        <input type="text" th:field="*{ville}" required/>
+        <br>
 
-            <label>Code postal :</label>
-            <input type="number" th:field="*{cp}" required/>
-            <br>
+        <label>Code postal :</label>
+        <input type="number" th:field="*{cp}" required/>
+        <br>
 
-            <label>Lieu :</label>
-            <input type="text" th:field="*{lieu}" required/>
-            <br>
+        <label>Lieu :</label>
+        <input type="text" th:field="*{lieu}" required/>
+        <br>
 
-            <label>Date de début :</label>
-            <input type="date" th:field="*{dateDebut}" />
-            <br>
+        <label>Date de début :</label>
+        <input type="date" th:field="*{dateDebut}"/>
+        <br>
 
-            <label>Date de fin: :</label>
-            <input type="date" th:field="*{dateFin}" />
-            <br>
+        <label>Date de fin: :</label>
+        <input type="date" th:field="*{dateFin}"/>
+        <br>
 
-            <label>Latitude :</label>
-            <input type="number" th:field="*{latitude}" step="any" required/>
-            <br>
+        <label>Latitude :</label>
+        <input type="number" th:field="*{latitude}" step="any" required/>
+        <br>
 
-            <label>Longitude :</label>
-            <input type="number" th:field="*{longitude}" step="any" required/>
-            <br>
+        <label>Longitude :</label>
+        <input type="number" th:field="*{longitude}" step="any" required/>
+        <br>
 
-            <label>Url :</label>
-            <input type="text" th:field="*{url}" />
-            <br>
+        <label>Url :</label>
+        <input type="text" th:field="*{url}"/>
+        <br>
 
-            <input class="bouton-vert" type="submit" value="Enregistrer"/>
-        </form>
-    </main>
-
+        <input class="bouton-vert" type="submit" value="Enregistrer"/>
+    </form>
+</main>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/Javascript/inscription.js"></script>
 </body>
 </html>

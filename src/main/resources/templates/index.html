@@ -9,48 +9,49 @@
 </head>
 <body>
 
-    <header>
-        <h1>Page d'accueil</h1>
-    </header>
+<header>
+    <h1>Page d'accueil</h1>
+</header>
 
-    <main class="main-index">
+<main class="main-index">
 
-        <h2>Les festivals de votre région</h2>
-        <div id="mapid"></div>
-        <a id="bouton-inscription" href="/inscription"><input class="bouton-vert" type="submit" value="Ajouter un festival"/></a>
+    <h2>Les festivals de votre région</h2>
+    <div id="mapid"></div>
+    <a id="bouton-inscription" href="/inscription"><input class="bouton-vert" type="submit"
+                                                          value="Ajouter un festival"/></a>
 
-        <div class="table-container">
-            <table class="tableau">
-                <thead class="haut-tableau">
-                <tr>
-                    <th class="en-tete-tableau">Nom</th>
-                    <th class="en-tete-tableau">Ville</th>
-                    <th class="en-tete-tableau">Lieu</th>
-                    <th class="en-tete-tableau">Début</th>
-                    <th class="en-tete-tableau">Fin</th>
-                    <th class="en-tete-tableau"></th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="festival : ${festivals}">
-                        <td class="cellule" th:text="${festival.nom}"></td>
-                        <td class="cellule" th:text="${festival.ville}"></td>
-                        <td class="cellule" th:text="${festival.lieu}"></td>
-                        <td class="cellule" th:text="${festival.dateDebut}"></td>
-                        <td class="cellule" th:text="${festival.dateFin}"></td>
-                        <td>
-                            <form th:action="@{/modification}" method="get">
-                                <input type="hidden" name="id" th:value="${festival.id}"/>
-                                <input class="bouton-editer" type="submit" value="Editer"/>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </main>
+    <div class="table-container">
+        <table class="tableau">
+            <thead class="haut-tableau">
+            <tr>
+                <th class="en-tete-tableau">Nom</th>
+                <th class="en-tete-tableau">Ville</th>
+                <th class="en-tete-tableau">Lieu</th>
+                <th class="en-tete-tableau">Début</th>
+                <th class="en-tete-tableau">Fin</th>
+                <th class="en-tete-tableau"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="festival : ${festivals}">
+                <td class="cellule" th:text="${festival.nom}"></td>
+                <td class="cellule" th:text="${festival.ville}"></td>
+                <td class="cellule" th:text="${festival.lieu}"></td>
+                <td class="cellule" th:text="${festival.dateDebut}"></td>
+                <td class="cellule" th:text="${festival.dateFin}"></td>
+                <td>
+                    <form th:action="@{/modification}" method="get">
+                        <input type="hidden" name="id" th:value="${festival.id}"/>
+                        <input class="bouton-editer" type="submit" value="Editer"/>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/index.js"></script>
+<script src="/Javascript/index.js"></script>
 </body>
 </html>

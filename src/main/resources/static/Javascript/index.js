@@ -19,6 +19,7 @@ fetch("http://localhost:8080/api/festivals")
     })
     .catch(error => console.error(error));
 
+// Ajout de la possibilité de trier les festivals par date
 // Obtenir la colonne "Date de début"
 const dateDebutHeader = document.querySelector(".en-tete-tableau:nth-child(4)");
 
@@ -42,6 +43,36 @@ dateDebutHeader.addEventListener("click", function() {
         dateDebutHeader.dataset.sort = "desc";
     } else {
         dateDebutHeader.dataset.sort = "asc";
+    }
+
+    // Mettre à jour le tableau avec les données triées
+    rows.forEach(row => tbody.appendChild(row));
+});
+
+// Ajout de la possibilité de trier les festivals par nom
+// Obtenir la colonne "Nom du festival"
+const nomHeader = document.querySelector(".en-tete-tableau:nth-child(1)");
+
+// Ajouter un écouteur d'événements de clic à l'en-tête de la colonne "Nom du festival"
+nomHeader.addEventListener("click", function() {
+    const table = document.querySelector(".tableau");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // Tri des données en fonction du nom du festival
+    rows.sort(function(a, b) {
+        const aNom = a.querySelector(".cellule:nth-child(1)").innerText;
+        const bNom = b.querySelector(".cellule:nth-child(1)").innerText;
+
+        return aNom.localeCompare(bNom);
+    });
+
+    // Inverser l'ordre si l'utilisateur a déjà trié dans l'ordre croissant
+    if (nomHeader.dataset.sort === "asc") {
+        rows.reverse();
+        nomHeader.dataset.sort = "desc";
+    } else {
+        nomHeader.dataset.sort = "asc";
     }
 
     // Mettre à jour le tableau avec les données triées

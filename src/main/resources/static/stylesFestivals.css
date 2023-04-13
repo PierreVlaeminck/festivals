@@ -139,7 +139,8 @@ th.sortable:hover {
 
 /* Style pour les lignes impaires du tableau */
 tbody tr:nth-child(odd) {
-    background-color: white;
+    background-color: #edd9fd;
+
 }
 
 /* Style pour les bouton "Editer" */

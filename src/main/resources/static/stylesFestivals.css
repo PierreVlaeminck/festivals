@@ -5,11 +5,6 @@
 
 /* -----------------------------------CSS commun aux 3 pages -------------------------------*/
 
-#mapid {
-
-}
-
-
 html {
     background-image: url("fond6.PNG");
     background-repeat: no-repeat;
@@ -45,7 +40,7 @@ main {
 }
 
 .bouton-vert {
-    margin: auto;
+    margin: 10px auto;
     padding: 5px;
     border: 1px solid darkgreen;
     border-radius: 5px;
@@ -54,22 +49,22 @@ main {
     font-weight: bold;
 }
 
-
 h1 {
     text-align: center;
-    font-size: 100px;
+    font-size: 120px;
     font-family: 'Lemon Tuesday', sans-serif;
     color: white;
 }
 
-span{
-    font-family: arial;
-}
-
 h2 {
     text-align: center;
-    font-family: arial;
+    font-family: Arial;
+    color: #b68ed7;
     font-size: 30px;
+}
+
+p{
+    text-align: center;
 }
 
 /* ------------------------------Page Index------------------------------------- */
@@ -87,7 +82,6 @@ h2 {
     font-family: Arial;
     font-size: 60px;
 }
-
 
 /* Style pour le positionnement de la carte */
 #mapid{
@@ -118,7 +112,6 @@ h2 {
 
 .haut-tableau {
     background-color: white;
-
 }
 
 .en-tete-tableau {
@@ -139,8 +132,7 @@ th.sortable:hover {
 
 /* Style pour les lignes impaires du tableau */
 tbody tr:nth-child(odd) {
-    background-color: #c6a9ce;
-
+    background-color: #c4b0d0;
 }
 
 /* Style pour les bouton "Editer" */
@@ -151,7 +143,6 @@ tbody tr:nth-child(odd) {
     margin: auto;
     font-size: 10px;
 }
-
 
 
 /* ------------------------------Page Inscription & Modification------------------------------------- */

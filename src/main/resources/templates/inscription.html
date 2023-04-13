@@ -10,12 +10,14 @@
 </head>
 <body>
 <header>
-    <h1>Breizh Festivals Summer<span>.com</span></h1>
+    <h1>Breizh Festivals Summer</h1>
 </header>
 
 <main>
     <section>
         <h2>Saisisez les données du festival</h2>
+        <br>
+        <p>Cliquez sur la carte pour localiser le lieu du festival</p>
         <div id="mapid"></div>
     </section>
     <form class="inscription" th:action="@{/inscription}" th:object="${festival}" method="post">
@@ -58,6 +60,8 @@
 
         <input class="bouton-vert" type="submit" value="Enregistrer"/>
     </form>
+
+    <p class="p-retour">Pour retourner sur la page d'accueil, cliquez <a href="/"/> ici </a>!</p>
 </main>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

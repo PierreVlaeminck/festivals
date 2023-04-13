@@ -49,4 +49,9 @@ public class FestivalsDaoImpl implements FestivalsDao {
         return festivalsRepository.findById(id);
     }
 
+    @Override
+    public void deleteFestival(Long id) {
+        festivalsRepository.deleteById(id);
+    }
+
 }

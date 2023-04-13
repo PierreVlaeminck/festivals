@@ -6,16 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/stylesFestivals.css">
+    <link href="https://fonts.cdnfonts.com/css/lemon-tuesday" rel="stylesheet">
     <title>Editer un festival</title>
 </head>
 
 <header>
-    <h1>Page "Editer un festival"</h1>
+    <h1>Breizh Festivals Summer<span>.com</span></h1>
 </header>
 
 <body>
     <main>
-        <h2>Editer un festival </h2>
+        <h2>Mettez ici à jour des données du festival:</h2>
         <form class="modification" th:action="@{/modification}" th:object="${festival}" method="post">
 
             <label>Nom :</label>
@@ -45,7 +46,14 @@
             <!-- Ajout du champ caché pour stocker l'ID du festival -->
             <input type="hidden" th:field="*{id}" required/>
 
-            <input class="bouton-vert" type="submit" value="Enregistrer" required/>
+            <input class="bouton-vert" type="submit" value="Enregistrer" />
+        </form>
+        <br>
+        <p class="paragraphe">Si vous souhaitez supprimer définitivement le festival, cliquez ici:</p>
+        <form th:action="@{/suppression}" th:object="${festival}" method="post">
+            <!-- Ajout du champ caché pour stocker l'ID du festival -->
+            <input type="hidden" th:field="*{id}" />
+            <input type="submit" class="bouton-rouge" value="Supprimer le festival" onclick="return confirm('Voulez-vous vraiment supprimer ce festival ?')" />
         </form>
 </main>
 

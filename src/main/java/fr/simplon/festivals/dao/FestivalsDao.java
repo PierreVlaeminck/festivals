@@ -12,4 +12,6 @@ public interface FestivalsDao {
 
 
     Optional<Festival> findById(Long id);
+
+    void deleteFestival(Long id);
 }

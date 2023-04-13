@@ -1,9 +1,12 @@
+/* Import d'une police Google font api : */
+@import url('https://fonts.cdnfonts.com/css/lemon-tuesday');
+
+
 
 /* -----------------------------------CSS commun aux 3 pages -------------------------------*/
 
 #mapid {
-    height: 400px;
-    width: 100%;
+
 }
 
 
@@ -20,7 +23,7 @@ html::before {
     background: radial-gradient( white, #d0b1e7, #1c031c 60%);
     width: 100%;
     height: 100vh;
-    opacity: 90%;
+    opacity: 70%;
     mix-blend-mode: screen; /* mode de fusion pour ajouter de la lumière */
 }
 
@@ -34,7 +37,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-items: center;
-    background-color: #E6E6E6;
+    border-radius: 10px;
+    background-color: white;
     margin: 100px 300px;
     padding: 10px 5px 20px 5px;
     font-family: arial;
@@ -50,23 +54,46 @@ main {
     font-weight: bold;
 }
 
+
 h1 {
     text-align: center;
-    font-size: 60px;
-    font-family: "Calibri Light";
+    font-size: 100px;
+    font-family: 'Lemon Tuesday', sans-serif;
     color: white;
+}
+
+span{
+    font-family: arial;
 }
 
 h2 {
     text-align: center;
+    font-family: arial;
     font-size: 30px;
 }
 
 /* ------------------------------Page Index------------------------------------- */
 
+.p-titre{
+    text-align: center;
+    color: white;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.h3-titre{
+    text-align: center;
+    color: white;
+    font-family: Arial;
+    font-size: 60px;
+}
+
+
 /* Style pour le positionnement de la carte */
 #mapid{
     margin: 10px auto 20px auto;
+    height: 400px;
+    width: 100%;
 }
 
 /* Style pour le positionnement du bouton */
@@ -150,12 +177,22 @@ form input{
 }
 
 
+/* ------------------------------Page Modification------------------------------------- */
 
 
+.bouton-rouge{
+    margin: auto;
+    padding: 5px;
+    border: 1px solid darkred;
+    border-radius: 5px;
+    background-color: indianred;
+    color: white;
+    font-weight: bold;
+}
 
-
-
-
+.paragraphe{
+    text-align: center;
+}
 
 
 

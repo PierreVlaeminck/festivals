@@ -118,4 +118,11 @@ public class FestivalsController {
         List<Festival> festivals = festivalsDao.getAllFestivals();
         return festivals;
     }
+
+    @PostMapping("/suppression")
+    public String deleteFestival(@ModelAttribute("festival") Festival festival) {
+        festivalsDao.deleteFestival(festival.getId());
+        return "redirect:/";
+    }
+
 }

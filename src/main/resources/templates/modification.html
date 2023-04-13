@@ -19,33 +19,33 @@
         <form class="modification" th:action="@{/modification}" th:object="${festival}" method="post">
 
             <label>Nom :</label>
-            <input type="text" th:field="*{nom}" />
+            <input type="text" th:field="*{nom}" required/>
             <br>
 
             <label>Ville :</label>
-            <input type="text" th:field="*{ville}" />
+            <input type="text" th:field="*{ville}" required/>
             <br>
 
             <label>Code postal :</label>
-            <input type="number" th:field="*{cp}" />
+            <input type="number" th:field="*{cp}" required/>
             <br>
 
             <label>Lieu :</label>
-            <input type="text" th:field="*{lieu}" />
+            <input type="text" th:field="*{lieu}" required/>
             <br>
 
             <label>Date de début :</label>
-            <input type="text" th:field="*{dateDebut}"  placeholder="jj/mm/aaaa" />
+            <input type="text" th:field="*{dateDebut}"  placeholder="jj/mm/aaaa" required/>
             <br>
 
             <label>Date de fin: :</label>
-            <input type="text" th:field="*{dateFin}"  placeholder="jj/mm/aaaa" />
+            <input type="text" th:field="*{dateFin}"  placeholder="jj/mm/aaaa" required/>
             <br>
 
             <!-- Ajout du champ caché pour stocker l'ID du festival -->
-            <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{id}" required/>
 
-            <input class="bouton-vert" type="submit" value="Enregistrer"/>
+            <input class="bouton-vert" type="submit" value="Enregistrer" required/>
         </form>
 </main>
 

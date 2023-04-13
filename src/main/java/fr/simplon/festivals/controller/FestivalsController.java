@@ -63,6 +63,8 @@ public class FestivalsController {
             return "redirect:/";
         }
     }
+
+
     @PostMapping("/modification")
     public String editFestival(@ModelAttribute("festival") Festival festival) {
 
@@ -72,18 +74,18 @@ public class FestivalsController {
         if (optionalFestival.isPresent()) {
             Festival existingFestival = optionalFestival.get();
 
-            // mettre à jour les autres propriétés de l'objet Festival existant
+            // Mise à jour les autres propriétés de l'objet Festival existant
             existingFestival.setNom(festival.getNom());
             existingFestival.setVille(festival.getVille());
             existingFestival.setLieu(festival.getLieu());
             existingFestival.setDateDebut(festival.getDateDebut());
             existingFestival.setDateFin(festival.getDateFin());
 
-            // conserver les valeurs existantes de latitude et de longitude
+            // Conservation les valeurs existantes de latitude et de longitude
             existingFestival.setLatitude(existingFestival.getLatitude());
             existingFestival.setLongitude(existingFestival.getLongitude());
 
-            // enregistrer les modifications dans la base de données
+            // Enregistrement des modifications dans la base de données
             festivalsDao.saveFestivals(existingFestival);
             return "redirect:/";
 

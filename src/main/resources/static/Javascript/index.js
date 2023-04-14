@@ -18,8 +18,8 @@ fetch("http://localhost:8080/api/festivals")
     .then(data => {
         // Browse the retrieved data and create a marker for each festival.
         data.forEach(festival => {
-            var marker = L.marker([festival.latitude, festival.longitude]).addTo(map);
-            var link = "<a href='" + festival.url + "'>" + festival.url + "</a>";
+            let marker = L.marker([festival.latitude, festival.longitude]).addTo(map);
+            let link = "<a href='" + festival.url + "'>" + festival.url + "</a>";
             marker.bindPopup("<b>" + festival.nom + "</b><br>" + festival.ville + "<br>" + festival.lieu + "<br>" + link).openPopup();
 
             // Add a 'click' event listener to the marker

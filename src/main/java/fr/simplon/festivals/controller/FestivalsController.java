@@ -65,7 +65,7 @@ public class FestivalsController {
             model.addAttribute("festival", festival);
             return "modification";
         } else {
-            // En cas d'absence du festival avec l'identifiant donné
+            // In case of absence from the festival with the given ID
             return "redirect:/";
         }
     }
@@ -79,30 +79,30 @@ public class FestivalsController {
     @PostMapping("/modification")
     public String editFestival(@ModelAttribute("festival") Festival festival) {
 
-        // Récupération l'objet Festival existant en utilisant son identifiant unique
+        // Retrieve the existing Festival object using its unique identifier
         Optional<Festival> optionalFestival = festivalsDao.findById(festival.getId());
 
         if (optionalFestival.isPresent()) {
             Festival existingFestival = optionalFestival.get();
 
-            // Mise à jour les autres propriétés de l'objet Festival existant
+            // Update the other properties of the existing Festival object
             existingFestival.setNom(festival.getNom());
             existingFestival.setVille(festival.getVille());
             existingFestival.setLieu(festival.getLieu());
             existingFestival.setDateDebut(festival.getDateDebut());
             existingFestival.setDateFin(festival.getDateFin());
 
-            // Conservation les valeurs existantes de latitude et de longitude
+            // Keep the existing values of latitude and longitude
             existingFestival.setLatitude(existingFestival.getLatitude());
             existingFestival.setLongitude(existingFestival.getLongitude());
 
-            // Enregistrement des modifications dans la base de données
+            // Save changes in the database
             festivalsDao.saveFestivals(existingFestival);
             return "redirect:/";
 
         } else {
 
-            // En cas d'absence du festival avec l'identifiant donné
+            // In case of absence from the festival with the given ID
             return "redirect:/";
         }
     }

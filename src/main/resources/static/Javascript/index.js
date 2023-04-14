@@ -1,4 +1,4 @@
-// créer une carte centrée sur la Bretagne
+// create a map centered on Bretagne France
 let map = L.map('mapid').setView([48.2020471, -2.9326435], 8);
 
 // ajouter une couche de tuiles OpenStreetMap à la carte
@@ -7,11 +7,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18
 }).addTo(map);
 
-// récupérer les données des festivals et ajoute un pointeur sur la map.
+// get the festival data and add a pointer to the map
 fetch("http://localhost:8080/api/festivals")
     .then(response => response.json())
     .then(data => {
-        // Parcourez les données récupérées et créez un marqueur pour chaque festival
+        // Browse the retrieved data and create a marker for each festival
         data.forEach(festival => {
             var marker = L.marker([festival.latitude, festival.longitude]).addTo(map);
             var link = "<a href='" + festival.url + "'>" + festival.url + "</a>";
@@ -24,17 +24,17 @@ fetch("http://localhost:8080/api/festivals")
 //-----------------------------------------------------------------------------------------------------
 
 
-// Ajout de la possibilité de trier les festivals par date
-// Obtenir la colonne "Date de début"
+// Add the possibility to sort festivals by date
+// Get the "Start date" column
 const dateDebutHeader = document.querySelector(".en-tete-tableau:nth-child(4)");
 
-// Ajouter un écouteur d'événements de clic à l'en-tête de la colonne "Date de début"
+// Add a click event listener to the "Start date" column header
 dateDebutHeader.addEventListener("click", function() {
     const table = document.querySelector(".tableau");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Tri des données en fonction de la date de début
+    // Sort data by start date
     rows.sort(function(a, b) {
         const aDate = new Date(a.querySelector(".cellule:nth-child(4)").innerText);
         const bDate = new Date(b.querySelector(".cellule:nth-child(4)").innerText);
@@ -42,7 +42,7 @@ dateDebutHeader.addEventListener("click", function() {
         return aDate - bDate;
     });
 
-    // Inverser l'ordre si l'utilisateur a déjà trié dans l'ordre croissant
+    // Reverse the order if the user has already sorted in ascending order
     if (dateDebutHeader.dataset.sort === "asc") {
         rows.reverse();
         dateDebutHeader.dataset.sort = "desc";
@@ -50,7 +50,7 @@ dateDebutHeader.addEventListener("click", function() {
         dateDebutHeader.dataset.sort = "asc";
     }
 
-    // Mettre à jour le tableau avec les données triées
+    // Update the table with the sorted data
     rows.forEach(row => tbody.appendChild(row));
 });
 
@@ -58,17 +58,17 @@ dateDebutHeader.addEventListener("click", function() {
 //--------------------------------------------------------------------------------------
 
 
-// Ajout de la possibilité de trier les festivals par nom
-// Obtenir la colonne "Nom du festival"
+// Add the possibility to sort festivals by name
+// Get the "Festival name" column
 const nomHeader = document.querySelector(".en-tete-tableau:nth-child(1)");
 
-// Ajouter un écouteur d'événements de clic à l'en-tête de la colonne "Nom du festival"
+// Add a click event listener to the header of the "Festival name" column
 nomHeader.addEventListener("click", function() {
     const table = document.querySelector(".tableau");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Tri des données en fonction du nom du festival
+    // Sorting of the data according to the name of the festival
     rows.sort(function(a, b) {
         const aNom = a.querySelector(".cellule:nth-child(1)").innerText;
         const bNom = b.querySelector(".cellule:nth-child(1)").innerText;
@@ -76,7 +76,7 @@ nomHeader.addEventListener("click", function() {
         return aNom.localeCompare(bNom);
     });
 
-    // Inverser l'ordre si l'utilisateur a déjà trié dans l'ordre croissant
+    // Reverse the order if the user has already sorted in ascending order
     if (nomHeader.dataset.sort === "asc") {
         rows.reverse();
         nomHeader.dataset.sort = "desc";
@@ -84,7 +84,7 @@ nomHeader.addEventListener("click", function() {
         nomHeader.dataset.sort = "asc";
     }
 
-    // Mettre à jour le tableau avec les données triées
+    // Update the table with the sorted data
     rows.forEach(row => tbody.appendChild(row));
 });
 
@@ -92,17 +92,17 @@ nomHeader.addEventListener("click", function() {
 //-----------------------------------------------------------------------------------------------------
 
 
-// Ajout de la possibilité de trier les festivals par ville
-// Obtenir la colonne "Ville du festival"
+// Added the possibility to sort festivals by city
+// Get the "Festival city" column
 const villeHeader = document.querySelector(".en-tete-tableau:nth-child(2)");
 
-// Ajouter un écouteur d'événements de clic à l'en-tête de la colonne "Ville du festival"
+// Add a click event listener to the "Festival City" column header
 villeHeader.addEventListener("click", function() {
     const table = document.querySelector(".tableau");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Tri des données en fonction de la ville du festival
+    // Sorting of the data according to the city of the festival
     rows.sort(function(a, b) {
         const aVille = a.querySelector(".cellule:nth-child(2)").innerText;
         const bVille = b.querySelector(".cellule:nth-child(2)").innerText;
@@ -110,7 +110,7 @@ villeHeader.addEventListener("click", function() {
         return aVille.localeCompare(bVille);
     });
 
-    // Inverser l'ordre si l'utilisateur a déjà trié dans l'ordre croissant
+    // Reverse the order if the user has already sorted in ascending order
     if (villeHeader.dataset.sort === "asc") {
         rows.reverse();
         villeHeader.dataset.sort = "desc";
@@ -118,6 +118,6 @@ villeHeader.addEventListener("click", function() {
         villeHeader.dataset.sort = "asc";
     }
 
-    // Mettre à jour le tableau avec les données triées
+    // Update the table with the sorted data
     rows.forEach(row => tbody.appendChild(row));
 });

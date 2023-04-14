@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="page-modification">
 
 
 <head>
@@ -11,7 +11,7 @@
 </head>
 
 <header>
-    <h1>Breizh Festivals Summer</h1>
+    <h1 class="h1-modification">Breizh Festivals Summer</h1>
 </header>
 
 <body>
@@ -53,9 +53,18 @@
         <form th:action="@{/suppression}" th:object="${festival}" method="post">
             <!-- Ajout du champ caché pour stocker l'ID du festival -->
             <input type="hidden" th:field="*{id}" />
-            <input type="submit" class="bouton-rouge" value="Supprimer le festival" onclick="return confirm('Voulez-vous vraiment supprimer ce festival ?')" />
+            <input type="submit" class="bouton-rouge" value="Supprimer le festival" id="delete-button" />
         </form>
 </main>
 
+    <script>
+        const deleteButton = document.querySelector('#delete-button');
+        deleteButton.addEventListener('click', function(event) {
+            const confirmed = confirm('Voulez-vous vraiment supprimer ce festival ?');
+            if (!confirmed) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>

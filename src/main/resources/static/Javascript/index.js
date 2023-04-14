@@ -25,12 +25,24 @@ fetch("http://localhost:8080/api/festivals")
             // Add a 'click' event listener to the marker
             marker.on('click', function() {
                 // Change the zoom level of the map
-                map.setView([festival.latitude, festival.longitude], 12);
+                map.setView([festival.latitude, festival.longitude], 14);
+            });
+
+            // Add a 'click' event listener to the festival name in the table
+            var festivalNames = document.querySelectorAll("td.cellule:first-child");
+            festivalNames.forEach(festivalName => {
+                if (festivalName.textContent === festival.nom) {
+                    festivalName.addEventListener('click', function() {
+                        // Change the zoom level of the map
+                        map.setView([festival.latitude, festival.longitude], 12);
+                    });
+                }
             });
 
         });
     })
     .catch(error => console.error(error));
+
 
 
 //-----------------------------------------------------------------------------------------------------//

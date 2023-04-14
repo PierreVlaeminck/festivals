@@ -1,4 +1,4 @@
-// create a map centered on Bretagne France
+// create a map centered on Bretagne France.
 let map = L.map('mapid').setView([48.2020471, -2.9326435], 8);
 
 // ajouter une couche de tuiles OpenStreetMap à la carte
@@ -7,11 +7,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18
 }).addTo(map);
 
-// get the festival data and add a pointer to the map
+// get the festival data and add a pointer to the map.
 fetch("http://localhost:8080/api/festivals")
     .then(response => response.json())
     .then(data => {
-        // Browse the retrieved data and create a marker for each festival
+        // Browse the retrieved data and create a marker for each festival.
         data.forEach(festival => {
             var marker = L.marker([festival.latitude, festival.longitude]).addTo(map);
             var link = "<a href='" + festival.url + "'>" + festival.url + "</a>";
@@ -24,17 +24,17 @@ fetch("http://localhost:8080/api/festivals")
 //-----------------------------------------------------------------------------------------------------
 
 
-// Add the possibility to sort festivals by date
-// Get the "Start date" column
+// Add the possibility to sort festivals by date.
+// Get the "Start date" column.
 const dateDebutHeader = document.querySelector(".en-tete-tableau:nth-child(4)");
 
-// Add a click event listener to the "Start date" column header
+// Add a click event listener to the "Start date" column header.
 dateDebutHeader.addEventListener("click", function() {
     const table = document.querySelector(".tableau");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Sort data by start date
+    // Sort data by start date.
     rows.sort(function(a, b) {
         const aDate = new Date(a.querySelector(".cellule:nth-child(4)").innerText);
         const bDate = new Date(b.querySelector(".cellule:nth-child(4)").innerText);
@@ -42,7 +42,7 @@ dateDebutHeader.addEventListener("click", function() {
         return aDate - bDate;
     });
 
-    // Reverse the order if the user has already sorted in ascending order
+    // Reverse the order if the user has already sorted in ascending order.
     if (dateDebutHeader.dataset.sort === "asc") {
         rows.reverse();
         dateDebutHeader.dataset.sort = "desc";
@@ -50,7 +50,7 @@ dateDebutHeader.addEventListener("click", function() {
         dateDebutHeader.dataset.sort = "asc";
     }
 
-    // Update the table with the sorted data
+    // Update the table with the sorted data.
     rows.forEach(row => tbody.appendChild(row));
 });
 
@@ -58,17 +58,17 @@ dateDebutHeader.addEventListener("click", function() {
 //--------------------------------------------------------------------------------------
 
 
-// Add the possibility to sort festivals by name
-// Get the "Festival name" column
+// Add the possibility to sort festivals by name.
+// Get the "Festival name" column.
 const nomHeader = document.querySelector(".en-tete-tableau:nth-child(1)");
 
-// Add a click event listener to the header of the "Festival name" column
+// Add a click event listener to the header of the "Festival name" column.
 nomHeader.addEventListener("click", function() {
     const table = document.querySelector(".tableau");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Sorting of the data according to the name of the festival
+    // Sorting of the data according to the name of the festival.
     rows.sort(function(a, b) {
         const aNom = a.querySelector(".cellule:nth-child(1)").innerText;
         const bNom = b.querySelector(".cellule:nth-child(1)").innerText;
@@ -76,7 +76,7 @@ nomHeader.addEventListener("click", function() {
         return aNom.localeCompare(bNom);
     });
 
-    // Reverse the order if the user has already sorted in ascending order
+    // Reverse the order if the user has already sorted in ascending order.
     if (nomHeader.dataset.sort === "asc") {
         rows.reverse();
         nomHeader.dataset.sort = "desc";
@@ -84,7 +84,7 @@ nomHeader.addEventListener("click", function() {
         nomHeader.dataset.sort = "asc";
     }
 
-    // Update the table with the sorted data
+    // Update the table with the sorted data.
     rows.forEach(row => tbody.appendChild(row));
 });
 
@@ -92,17 +92,17 @@ nomHeader.addEventListener("click", function() {
 //-----------------------------------------------------------------------------------------------------
 
 
-// Added the possibility to sort festivals by city
-// Get the "Festival city" column
+// Added the possibility to sort festivals by city.
+// Get the "Festival city" column.
 const villeHeader = document.querySelector(".en-tete-tableau:nth-child(2)");
 
-// Add a click event listener to the "Festival City" column header
+// Add a click event listener to the "Festival City" column header.
 villeHeader.addEventListener("click", function() {
     const table = document.querySelector(".tableau");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Sorting of the data according to the city of the festival
+    // Sorting of the data according to the city of the festival.
     rows.sort(function(a, b) {
         const aVille = a.querySelector(".cellule:nth-child(2)").innerText;
         const bVille = b.querySelector(".cellule:nth-child(2)").innerText;
@@ -110,7 +110,7 @@ villeHeader.addEventListener("click", function() {
         return aVille.localeCompare(bVille);
     });
 
-    // Reverse the order if the user has already sorted in ascending order
+    // Reverse the order if the user has already sorted in ascending order.
     if (villeHeader.dataset.sort === "asc") {
         rows.reverse();
         villeHeader.dataset.sort = "desc";
@@ -118,6 +118,6 @@ villeHeader.addEventListener("click", function() {
         villeHeader.dataset.sort = "asc";
     }
 
-    // Update the table with the sorted data
+    // Update the table with the sorted data.
     rows.forEach(row => tbody.appendChild(row));
 });

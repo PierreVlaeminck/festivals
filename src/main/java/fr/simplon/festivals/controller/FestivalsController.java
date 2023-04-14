@@ -65,7 +65,7 @@ public class FestivalsController {
             model.addAttribute("festival", festival);
             return "modification";
         } else {
-            // In case of absence from the festival with the given ID
+            // In case of absence from the festival with the given ID.
             return "redirect:/";
         }
     }
@@ -79,30 +79,30 @@ public class FestivalsController {
     @PostMapping("/modification")
     public String editFestival(@ModelAttribute("festival") Festival festival) {
 
-        // Retrieve the existing Festival object using its unique identifier
+        // Retrieve the existing Festival object using its unique identifier.
         Optional<Festival> optionalFestival = festivalsDao.findById(festival.getId());
 
         if (optionalFestival.isPresent()) {
             Festival existingFestival = optionalFestival.get();
 
-            // Update the other properties of the existing Festival object
+            // Update the other properties of the existing Festival object.
             existingFestival.setNom(festival.getNom());
             existingFestival.setVille(festival.getVille());
             existingFestival.setLieu(festival.getLieu());
             existingFestival.setDateDebut(festival.getDateDebut());
             existingFestival.setDateFin(festival.getDateFin());
 
-            // Keep the existing values of latitude and longitude
+            // Keep the existing values of latitude and longitude.
             existingFestival.setLatitude(existingFestival.getLatitude());
             existingFestival.setLongitude(existingFestival.getLongitude());
 
-            // Save changes in the database
+            // Save changes in the database.
             festivalsDao.saveFestivals(existingFestival);
             return "redirect:/";
 
         } else {
 
-            // In case of absence from the festival with the given ID
+            // In case of absence from the festival with the given ID.
             return "redirect:/";
         }
     }

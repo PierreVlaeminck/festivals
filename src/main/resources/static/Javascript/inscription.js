@@ -1,4 +1,4 @@
-// Get the latitude and longitude values from the form
+// Get the latitude and longitude values from the form.
 const latitudeInput = document.getElementById('latitude');
 const longitudeInput = document.getElementById('longitude');
 const villeInput = document.getElementById('ville');
@@ -7,7 +7,7 @@ const cpInput = document.getElementById('cp');
 // create a map centered on Bretagne
 let map = L.map('mapid').setView([48.2020471, -2.9326435], 8);
 
-// add an OpenStreetMap tile layer to the map
+// add an OpenStreetMap tile layer to the map.
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
     maxZoom: 18
@@ -16,13 +16,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create an initial marker
 let marker = L.marker([latitudeInput.value, longitudeInput.value]).addTo(map);
 
-// add a click event on the map to update the marker position
+// add a click event on the map to update the marker position.
 map.on('click', function(e) {
     marker.setLatLng(e.latlng);
     latitudeInput.value = e.latlng.lat.toFixed(6);
     longitudeInput.value = e.latlng.lng.toFixed(6);
 
-    // retrieve the city and the postal code corresponding to the coordinates
+    // retrieve the city and the postal code corresponding to the coordinates.
     fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
         .then(response => response.json())
         .then(data => {

@@ -21,6 +21,13 @@ fetch("http://localhost:8080/api/festivals")
             var marker = L.marker([festival.latitude, festival.longitude]).addTo(map);
             var link = "<a href='" + festival.url + "'>" + festival.url + "</a>";
             marker.bindPopup("<b>" + festival.nom + "</b><br>" + festival.ville + "<br>" + festival.lieu + "<br>" + link).openPopup();
+
+            // Add a 'click' event listener to the marker
+            marker.on('click', function() {
+                // Change the zoom level of the map
+                map.setView([festival.latitude, festival.longitude], 12);
+            });
+
         });
     })
     .catch(error => console.error(error));

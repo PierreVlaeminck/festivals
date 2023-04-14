@@ -53,7 +53,7 @@ public class FestivalsController {
     /**
      * Displays the form for editing an existing Festival.
      *
-     * @param id Long representing the ID of the Festival to be edited.
+     * @param id    Long representing the ID of the Festival to be edited.
      * @param model Model object to be used for storing and accessing data to be displayed on the view.
      * @return String representing the name of the view to be rendered for displaying the form.
      */
@@ -99,9 +99,7 @@ public class FestivalsController {
             // Save changes in the database.
             festivalsDao.saveFestivals(existingFestival);
             return "redirect:/";
-
         } else {
-
             // In case of absence from the festival with the given ID.
             return "redirect:/";
         }
@@ -124,5 +122,4 @@ public class FestivalsController {
         festivalsDao.deleteFestival(festival.getId());
         return "redirect:/";
     }
-
 }

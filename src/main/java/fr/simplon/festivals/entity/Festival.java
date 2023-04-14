@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table (name = "festivals")
+@Table(name = "festivals")
 public class Festival {
 
     @Id
@@ -15,7 +15,7 @@ public class Festival {
     private String url;
     private String ville;
     private int cp;
-    @Column (columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String lieu;
     private LocalDate dateDebut;
     private LocalDate dateFin;

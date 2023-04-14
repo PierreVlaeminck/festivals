@@ -1,3 +1,11 @@
+/**
+ *
+ * Retrieves the latitude and longitude values from the HTML form and initializes the map.
+ * Creates a marker at the specified latitude and longitude and adds a click event to update the marker position.
+ * Uses the OpenStreetMap tile layer and Nominatim API to retrieve the city and postal code corresponding to the coordinates.
+ *
+ */
+
 // Get the latitude and longitude values from the form.
 const latitudeInput = document.getElementById('latitude');
 const longitudeInput = document.getElementById('longitude');
@@ -17,7 +25,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let marker = L.marker([latitudeInput.value, longitudeInput.value]).addTo(map);
 
 // add a click event on the map to update the marker position.
-map.on('click', function(e) {
+map.on('click', function (e) {
     marker.setLatLng(e.latlng);
     latitudeInput.value = e.latlng.lat.toFixed(6);
     longitudeInput.value = e.latlng.lng.toFixed(6);

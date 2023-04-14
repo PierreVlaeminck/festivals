@@ -16,7 +16,6 @@ public class FestivalsDaoImpl implements FestivalsDao {
     @Autowired
     private FestivalsRepository festivalsRepository;
 
-
     /**
      * Saves a new Festival object to the database.
      *
@@ -26,7 +25,6 @@ public class FestivalsDaoImpl implements FestivalsDao {
     public void saveFestivals(Festival festival) {
         festivalsRepository.save(festival);
     }
-
 
     /**
      * Retrieves a list of all Festivals from the database.
@@ -49,10 +47,8 @@ public class FestivalsDaoImpl implements FestivalsDao {
         return festivalsRepository.findById(id);
     }
 
-
     @Override
     public void deleteFestival(Long id) {
         festivalsRepository.deleteById(id);
     }
-
 }

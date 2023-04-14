@@ -132,7 +132,7 @@ p{
     font-weight: bold;
 }
 
-th.sortable:hover {
+.sortable:hover {
     cursor: pointer;
 }
 
